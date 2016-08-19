@@ -266,6 +266,14 @@ func (this *CodecCtx) TimeBase() AVRational {
 	return AVRational(this.avCodecCtx.time_base)
 }
 
+func (this *CodecCtx) TimeBaseNum() int {
+	return int(this.avCodecCtx.time_base.num)
+}
+
+func (this *CodecCtx) TimeBaseDen() int {
+	return int(this.avCodecCtx.time_base.den)
+}
+
 func (this *CodecCtx) ChannelLayout() int {
 	return int(this.avCodecCtx.channel_layout)
 }
@@ -384,4 +392,13 @@ func (this *CodecCtx) FlushBuffers() {
 
 func (this *CodecCtx) Dump() {
 	fmt.Println(this.avCodecCtx)
+}
+
+func (this *CodecCtx) SampleAspectRatioNum() int {
+  return int(this.avCodecCtx.sample_aspect_ratio.num)
+}
+
+
+func (this *CodecCtx) SampleAspectRatioDec() int {
+  return int(this.avCodecCtx.sample_aspect_ratio.den)
 }

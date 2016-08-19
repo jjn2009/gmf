@@ -326,7 +326,9 @@ func (this *FmtCtx) GetNewPackets() chan *Packet {
 	yield := make(chan *Packet)
 
 	go func() {
+
 		for {
+      fmt.Println("for p := new packet")
 			p := NewPacket()
 
 			if ret := C.av_read_frame(this.avCtx, &p.avPacket); int(ret) < 0 {

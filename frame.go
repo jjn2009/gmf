@@ -39,6 +39,9 @@ func NewFrame() *Frame {
 	return &Frame{avFrame: C.av_frame_alloc()}
 }
 
+func (this *Frame) AvFrame() (*C.struct_AVFrame) {
+  return this.avFrame
+}
 func (this *Frame) EncodeNewPacket(cc *CodecCtx) (*Packet, bool, error) {
 	return encode(cc, this.avFrame, this.mediaType)
 }
